@@ -10,3 +10,5 @@ tasks = []
    
 
     
+with open("tasks.txt", "a") as file:
+    file.write(f"{name} - {tasks} \n ")
