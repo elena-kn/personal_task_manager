@@ -15,12 +15,104 @@ if open_admin.lower() == "yes":
         print("wrong password")
 number1 = int(input("enter the number : "))
 print("the number", number1)
+
+def add_task(tasks, task):
+    for i in range(1, 2):
+        task = input("enter the tasks number : ")
+        tasks.append(task)
+
+
+def show_task(tasks):
+   
+    if len(tasks) == 0:
+        print("No tasks available.")
+    else:
+        for number, task in enumerate(tasks, start=1):
+            print("Task Number:", number)
+            print("Title:", task["title"])
+            print("Status:", task["status"])
+            print("Priority:", task["priority"])
+            print("--------------------")
+
+
+def mark_done(tasks):
+    if len(tasks) == 0:
+        print("No tasks available.")
+        return
+
+def show_task(tasks):
+
+    task_number = int(input("Enter task number: "))
+
+    if 1 <= task_number <= len(tasks):
+        tasks[task_number - 1] += " Done"
+        print("Task marked as Done!")
+    else:
+        print("Invalid task number.")
+
+def delete_task(tasks):
+    if len(tasks) == 0:
+        print("No tasks available.")
+        return
+
+    show_task(tasks)
+    task_number = int(input("Enter task number to delete: "))
+
+    if 1 <= task_number <= len(tasks):
+        deleted_task = tasks.pop(task_number - 1)
+        print("Task deleted:", deleted_task["title"])
+    else:
+        print("Invalid task number."
+
+def admin_mode():
+    password = input("Enter admin password: ")
+
+    if password == admin_password:
+        print("Admin access granted!")
+        return True
+    else:
+        print("Incorrect password!")
+        return False
 tasks = []
 
-admin_mode = input("do you open the admin mode yes/ no" )
-if admin_mode ==
+while True:
+    print("\n--- Personal Task Manager ---")
+    
+    print("Show Tasks / Done / exit")
+    
+
+    choice = input("Choose an option: ")
+
+    if choice == "show tasks":
+        task = input("Enter task: ")
+        tasks.append(task)
+        print("Task added!")
+
+    elif choice == "Done":
+        show_task(tasks)
+        continue
+
+    elif choice == "exit":
+        mark_done(tasks)
+        break
+
+
+    if len(tasks) > 0:
+         task_number = int(input("Enter task number to delete: "))
+
+    if 1 <= task_number <= len(tasks):
+        tasks.pop(task_number - 1)
+        print("Task deleted!")
+    else:
+        print("Invalid task number.")
+
+ 
+
+   
+
+
    
 
     
 with open("tasks.txt", "a") as file:
-    file.write(f"{name} - {tasks} \n ")
+    file.write(f"{name} - {task}  - {choice}  - {open_admin}- \n ")
