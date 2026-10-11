@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from tasks import add_task, show_task
+from tasks import tasks
 name = input("whats your name ? ")
 print("welcome","name", name)
 load_dotenv()
@@ -23,16 +23,11 @@ def add_task(tasks, task):
 
 
 def show_task(tasks):
-   
     if len(tasks) == 0:
         print("No tasks available.")
     else:
-        for number, task in enumerate(tasks, start=1):
-            print("Task Number:", number)
-            print("Title:", task["title"])
-            print("Status:", task["status"])
-            print("Priority:", task["priority"])
-            print("--------------------")
+        for i, task in enumerate(tasks, start=1):
+            print(i, "-", task)
 
 
 def mark_done(tasks):
@@ -49,30 +44,6 @@ def show_task(tasks):
         print("Task marked as Done!")
     else:
         print("Invalid task number.")
-
-def delete_task(tasks):
-    if len(tasks) == 0:
-        print("No tasks available.")
-        return
-
-    show_task(tasks)
-    task_number = int(input("Enter task number to delete: "))
-
-    if 1 <= task_number <= len(tasks):
-        deleted_task = tasks.pop(task_number - 1)
-        print("Task deleted:", deleted_task["title"])
-    else:
-        print("Invalid task number."
-
-def admin_mode():
-    password = input("Enter admin password: ")
-
-    if password == admin_password:
-        print("Admin access granted!")
-        return True
-    else:
-        print("Incorrect password!")
-        return False
 tasks = []
 
 while True:
@@ -107,7 +78,8 @@ while True:
         print("Invalid task number.")
 
  
-
+priority = input("Enter priority (Low/Medium/High): ")
+print("Priority:", task["priority"])
    
 
 
@@ -115,4 +87,4 @@ while True:
 
     
 with open("tasks.txt", "a") as file:
-    file.write(f"{name} - {task}  - {choice}  - {open_admin}- \n ")
+    file.write(f"{name} - {tasks}- {choice} - {admin_password}\n ")
