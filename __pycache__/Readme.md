@@ -131,17 +131,17 @@ The available options may vary depending on the current implementation.
 ## Example Output
 
 ### Start
-![Start](/picture/scree1.png)
+![Start](/picture/screen1.png)
 
 ### Center
 ![Center](/picture/screen2.png)
 
 ### Finally
-![Finally](/picture/scree3.png)
+![Finally](//picture/screen3.png)
 
 ## Demo
 
-![Terminal Demo](/gif\Animation.gif)
+![Terminal Demo](/gif/Animation.gif)
 
 ## Roadmap
 - [x] Create the initial task manager

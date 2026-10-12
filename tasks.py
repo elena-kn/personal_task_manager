@@ -1,4 +1,4 @@
-userTasks = []
+taskes = []
 PRIORITY = ["low", "medium", "high", "emergency"]
 
 while True:
@@ -6,13 +6,13 @@ while True:
 
     taskName = input("Name: ")
     taskStatus = input("Status: ")
-    taskPriority = input("Priority (Low/Medium/High/Emergency): ")
-    taskDescription = input("Description (optional): ")
+    taskPriority = input("Priority [Low/Medium/High/Emergency]: ")
+    taskDescription = input("Description : : ")
 
     print("\n-----------------------\n")
 
     if taskName.strip() == "":
-        print("Error! Task name can't be empty.\n")
+        print("Error! Task name can't be empty.")
         continue
     elif taskStatus.strip() == "":
         print("Error! Task status can't be empty.\n")
@@ -21,7 +21,7 @@ while True:
         print("Error! An invalid priority.\n")
         continue
     else:
-        if taskDescription == "":
+        if taskDescription == " ":
             taskDescription = None
 
         task = {
@@ -31,11 +31,11 @@ while True:
             "description": taskDescription
         }
 
-        userTasks.append(task)
+        taskes.append(task)
 
         print("...../........../.....\n")
 
-    repeat = input("\nDo you want to add a new task? (y/n): ")
+    repeat = input("\nDo you want to add a new task? yes or no: ")
 
     if repeat.lower() == "n":
         break
