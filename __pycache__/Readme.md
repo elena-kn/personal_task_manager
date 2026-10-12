@@ -129,15 +129,19 @@ The example file must contain only placeholder values. Never upload your real pa
 The available options may vary depending on the current implementation.
 
 ## Example Output
-### start
-![scree](scree1.png)
-### center
-![scree](screen2.png)
-### finely
-![screen](personal_task_manager\scree3.png)
+
+### Start
+![Start](/picture/scree1.png)
+
+### Center
+![Center](/picture/screen2.png)
+
+### Finally
+![Finally](/picture/scree3.png)
+
 ## Demo
 
-[terminal gif](personal_task_manager\Animation.gif)
+![Terminal Demo](/gif\Animation.gif)
 
 ## Roadmap
 - [x] Create the initial task manager
