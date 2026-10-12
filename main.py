@@ -1,90 +1,34 @@
 import os
 from dotenv import load_dotenv
-from tasks import tasks
-name = input("whats your name ? ")
-print("welcome","name", name)
+
+admin_Mode = input("Are you an admin? (y/n): ")
+
 load_dotenv()
+ADMINPASSWORD = os.getenv("TASKMANAGERADMINPASSWORD")
 
-admin_password = os.getenv("QUIZ_ADMIN_PASSWORD")
-open_admin = input("do you want to open admin mode ? yes/no")
-if open_admin.lower() == "yes":
-    entered_password = input("enter admin password")
-    if entered_password == admin_password:
-        print("admin!  hi")
+if admin_Mode.lower() == "y":
+    authentication = input("Enter the password: ")
+    if authentication == ADMINPASSWORD:
+        print("Admin mode activated.")
     else:
-        print("wrong password")
-number1 = int(input("enter the number : "))
-print("the number", number1)
-
-def add_task(tasks, task):
-    for i in range(1, 2):
-        task = input("enter the tasks number : ")
-        tasks.append(task)
-
-
-def show_task(tasks):
-    if len(tasks) == 0:
-        print("No tasks available.")
-    else:
-        for i, task in enumerate(tasks, start=1):
-            print(i, "-", task)
-
-
-def mark_done(tasks):
-    if len(tasks) == 0:
-        print("No tasks available.")
-        return
-
-def show_task(tasks):
-
-    task_number = int(input("Enter task number: "))
-
-    if 1 <= task_number <= len(tasks):
-        tasks[task_number - 1] += " Done"
-        print("Task marked as Done!")
-    else:
-        print("Invalid task number.")
-tasks = []
-
-while True:
-    print("\n--- Personal Task Manager ---")
+        print("Access denied. password is incorrect.")
     
-    print("Show Tasks / Done / exit")
-    
+elif admin_Mode.lower() == "n":
+    username = input("Please enter your name: ")
 
-    choice = input("Choose an option: ")
+    print(f"Welcome {username}!")
 
-    if choice == "show tasks":
-        task = input("Enter task: ")
-        tasks.append(task)
-        print("Task added!")
+    from tasks import taskes
 
-    elif choice == "Done":
-        show_task(tasks)
-        continue
-
-    elif choice == "exit":
-        mark_done(tasks)
-        break
+    print("\n----------\n")
 
 
-    if len(tasks) > 0:
-         task_number = int(input("Enter task number to delete: "))
+    for task in taskes:
+        print(f"- Name: {task["name"].title()}\n- Status: {task["status"].title()}\n- Priority: {task["priority"].title()}\n- Description: {task["description"]}")
+        if task != taskes[-1]:
+            print("\n---\n")
 
-    if 1 <= task_number <= len(tasks):
-        tasks.pop(task_number - 1)
-        print("Task deleted!")
-    else:
-        print("Invalid task number.")
-
- 
-priority = input(tasks["tasks"])
-print("Priority:", task["priority"])
-   
-
-
-   
-
-    
-with open("tasks.txt", "a") as file:
-    file.write(f"{name} - {tasks}- {choice} - {admin_password}\n ")
+    with open(r"C:\Users\DELL\Documents\Programming - Projects\Python - Projects\Practices\personal_task_manager\tasks.txt", "a") as file:
+        for task in taskes:
+            file.write(f"- Name: {task["name"].title()}\n- Status: {task["status"].title()}\n- Priority: {task["priority"].title()}\n- Description: {task["description"]}")
+            file.write("\n---\n")
