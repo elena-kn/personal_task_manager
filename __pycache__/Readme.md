@@ -137,7 +137,7 @@ The available options may vary depending on the current implementation.
 ![Center](/picture/screen2.png)
 
 ### Finally
-![Finally](//picture/screen3.png)
+![Finally](/picture/screen3.png))
 
 ## Demo
 
