@@ -78,7 +78,7 @@ while True:
         print("Invalid task number.")
 
  
-priority = input("Enter priority (Low/Medium/High): ")
+priority = input(tasks["tasks"])
 print("Priority:", task["priority"])
    
 

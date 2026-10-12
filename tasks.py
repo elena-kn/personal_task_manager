@@ -7,4 +7,7 @@ tasks = [
     "status": "Pending",
     "priority": priority
     }
+    {
+        "tasks" : "Enter priority (Low/Medium/High): "
+    }
 ]
